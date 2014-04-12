@@ -1,5 +1,5 @@
 <div class="users form">
-<?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->create('User',array('novalidate'=>true)); ?>
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
@@ -10,7 +10,7 @@
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
         echo $this->Form->radio('gender', array('Female','Male'));
-		echo $this->Form->input('date_of_birth');
+		echo $this->Form->input('date_of_birth',array('class'=>'birthdate','type'=>'text'));
 		echo $this->Form->input('address');
 	?>
 	</fieldset>

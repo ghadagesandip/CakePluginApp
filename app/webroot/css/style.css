@@ -1,0 +1,44 @@
+.MenuBox{
+    background-color: olivedrab;
+    position: absolute;
+    display: none;
+}
+
+.menuitems-wrapper{
+    background-color: red;
+}
+
+.menuitems-wrapper .menuitems{
+    list-style: none;
+    float: left;
+    padding: 35px;
+    margin: 20px;
+    background-color: blueviolet;
+    transition:background-color 1s, border-radius 1s;
+}
+
+.menuitems-wrapper .menuitems:hover{
+    background-color:#ee3322;
+    border-radius:50px;
+}
+
+.menuitems-wrapper > .menuitems > a{
+    transition:background-color 1s;
+    background-color: transparent !important;
+}
+
+.menuitems-wrapper > .menuitems > a:hover{
+    background-color: transparent !important;
+}
+.showMenupopup{
+    display: block;
+}
+
+.oldClass{
+    background-color: #dcdcdc;
+
+}
+
+.newClass{
+    background-color: greenyellow;
+}

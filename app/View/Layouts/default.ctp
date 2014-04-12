@@ -28,18 +28,27 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+        echo $this->Html->css(array('cake.generic','smoothness/jquery-ui-1.10.4.custom.min','style'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
-		echo $this->fetch('script');
+
 	?>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?>
+			<h1>
+                <a id="Menu">Menu</a>
+                <div id="MenuBox" class="MenuBox">
+                    <ul class="menuitems-wrapper">
+                        <li class="menuitems"><?php echo $this->Html->link('Roles','/roles')?> </li>
+                        <li class="menuitems"><?php echo $this->Html->link('Users','/users')?> </li>
+                        <li class="menuitems"><?php echo $this->Html->link('Posts','/posts')?> </li>
+                        <li class="menuitems"><?php echo $this->Html->link('Widgets','/widgets')?> </li>
+                    </ul>
+                </div>
+
                 <div style="float: right;">
                     <?php echo $this->Html->link('logout','/logout');?>
                 </div>
@@ -60,6 +69,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
+    <?php
+
+        echo $this->fetch('script');
+        echo $this->Html->script(array('jquery-1.11.0.min','jquery-ui-1.10.4.custom','common','customMenuBar'));
+    ?>
 	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

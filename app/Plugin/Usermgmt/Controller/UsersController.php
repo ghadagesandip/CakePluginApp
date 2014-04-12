@@ -61,6 +61,7 @@ class UsersController extends UsermgmtAppController {
 
 
     public function login() {
+        $this->layout ='login';
         if($this->Auth->loggedIn()){
             $this->Redirect(array('plugin'=>null,'controller'=>'dashboards','action'=>'index'));
         }
