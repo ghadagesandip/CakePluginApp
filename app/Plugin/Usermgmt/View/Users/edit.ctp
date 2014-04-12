@@ -7,11 +7,10 @@
 		echo $this->Form->input('role_id');
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
-		echo $this->Form->input('password');
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
-		echo $this->Form->input('gender');
-		echo $this->Form->input('date_of_birth');
+        echo $this->Form->radio('gender', array('Female','Male'));
+        echo $this->Form->input('date_of_birth');
 		echo $this->Form->input('address');
 	?>
 	</fieldset>

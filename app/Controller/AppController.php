@@ -37,12 +37,12 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'authorize' => array(
-                'Actions' => array('actionPath' => 'controllers')
+              //  'Actions' => array('actionPath' => 'controllers')
             )
         ),
     );
 
-    public $helpers = array('Html', 'Form', 'Session');
+    public $helpers = array('Html', 'Form', 'Session','Function');
 
     public function beforeFilter() {
 

@@ -1,11 +1,13 @@
 <?php
 App::uses('UsermgmtAppModel', 'Usermgmt.Model');
+
 /**
  * Role Model
  *
  * @property User $User
  */
 class Role extends UsermgmtAppModel {
+
 
 /**
  * Validation rules
@@ -34,7 +36,7 @@ class Role extends UsermgmtAppModel {
  */
 	public $hasMany = array(
 		'User' => array(
-			'className' => 'User',
+			'className' => 'Usermgmt.User',
 			'foreignKey' => 'role_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -47,5 +49,10 @@ class Role extends UsermgmtAppModel {
 			'counterQuery' => ''
 		)
 	);
+
+    public function getRoles(){
+      return $this->find('list');
+
+    }
 
 }

@@ -1,5 +1,6 @@
 <?php
 App::uses('UsermgmtAppController', 'Usermgmt.Controller');
+
 /**
  * Users Controller
  *
@@ -7,6 +8,8 @@ App::uses('UsermgmtAppController', 'Usermgmt.Controller');
  * @property PaginatorComponent $Paginator
  */
 class UsersController extends UsermgmtAppController {
+    public $uses = array('Usermgmt.User');
+
 
 /**
  * Components
@@ -94,11 +97,11 @@ class UsersController extends UsermgmtAppController {
  * @return void
  */
 	public function view($id = null) {
+
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
+	    $this->set('user', $this->User->getUser($id));
 	}
 
 /**
@@ -116,8 +119,8 @@ class UsersController extends UsermgmtAppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
-        $this->User->Role->displayField = 'role';
-		$roles = $this->User->Role->find('list');
+
+		$roles = $this->User->Role->getRoles();
 		$this->set(compact('roles'));
 	}
 
@@ -140,10 +143,10 @@ class UsersController extends UsermgmtAppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
+
+			$this->request->data = $this->User->getUser($id);
 		}
-		$roles = $this->User->Role->find('list');
+        $roles = $this->User->Role->getRoles();
 		$this->set(compact('roles'));
 	}
 
@@ -189,8 +192,7 @@ class UsersController extends UsermgmtAppController {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
+		$this->set('user', $this->User->find('first', $this->User->getUser($id)));
 	}
 
 /**
@@ -208,7 +210,7 @@ class UsersController extends UsermgmtAppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
-		$roles = $this->User->Role->find('list');
+        $roles = $this->User->Role->getRoles();
 		$this->set(compact('roles'));
 	}
 
@@ -231,10 +233,10 @@ class UsersController extends UsermgmtAppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
+
+			$this->request->data = $this->User->find('first', $this->User->getUser($id));
 		}
-		$roles = $this->User->Role->find('list');
+        $roles = $this->User->Role->getRoles();
 		$this->set(compact('roles'));
 	}
 

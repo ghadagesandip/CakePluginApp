@@ -1,3 +1,4 @@
+<?php //echo '<pre>'; pr($user);exit;?>
 <div class="users view">
 <h2><?php echo __('User'); ?></h2>
 	<dl>
@@ -8,7 +9,7 @@
 		</dd>
 		<dt><?php echo __('Role'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($user['Role']['id'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
+			<?php echo $this->Html->link($user['Role']['name'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Username'); ?></dt>
@@ -38,7 +39,7 @@
 		</dd>
 		<dt><?php echo __('Gender'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['gender']); ?>
+			<?php echo $this->Function->getGender($user['User']['gender']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Date Of Birth'); ?></dt>

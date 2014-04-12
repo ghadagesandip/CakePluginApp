@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+            <th><?php echo $this->Paginator->sort('user_count'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -12,6 +13,7 @@
 	<tr>
 		<td><?php echo h($role['Role']['id']); ?>&nbsp;</td>
 		<td><?php echo h($role['Role']['name']); ?>&nbsp;</td>
+        <td><?php echo h($role['Role']['user_count']); ?>&nbsp;</td>
 		<td><?php echo h($role['Role']['created']); ?>&nbsp;</td>
 		<td><?php echo h($role['Role']['modified']); ?>&nbsp;</td>
 		<td class="actions">

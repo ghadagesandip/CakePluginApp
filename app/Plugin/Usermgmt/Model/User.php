@@ -96,13 +96,13 @@ class User extends UsermgmtAppModel {
  */
 	public $belongsTo = array(
 		'Role' => array(
-			'className' => 'Role',
+			'className' => 'Usermgmt.Role',
 			'foreignKey' => 'role_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
-		)
-	);
+			'order' => '',
+            'counterCache'=>true
+		)	);
 
 
     public function beforeSave($options = array()) {
@@ -113,6 +113,17 @@ class User extends UsermgmtAppModel {
             );
         }
         return true;
+    }
+
+
+    public function getUser($id){
+        return $this->find('first',array(
+            'conditions'=>$id,
+            //'fields'=>array(),
+            'conatin'=>array(
+                'Role'=>array('fields'=>array('id','name'))
+            )
+        ));
     }
 
 
