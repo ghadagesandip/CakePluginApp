@@ -38,7 +38,26 @@
     background-color: #dcdcdc;
 
 }
-
 .newClass{
     background-color: greenyellow;
+}
+
+.child-items{
+
+}
+
+ul.child-items li{
+   list-style: none;
+   display: none;
+}
+
+ul.child-items li:hover{
+
+}
+ul.child-items li a{
+    background-color: transparent !important;
+}
+
+ul.child-items li a:hover{
+    background-color: transparent !important;
 }

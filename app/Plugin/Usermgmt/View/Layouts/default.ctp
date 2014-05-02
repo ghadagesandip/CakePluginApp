@@ -42,7 +42,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
                 <a id="Menu">Menu</a>
                 <div id="MenuBox" class="MenuBox">
                     <ul class="menuitems-wrapper">
-                        <li class="menuitems"><?php echo $this->Html->link('Roles','/roles')?></li>
+                        <li class="menuitems">
+                            <?php echo $this->Html->link('Roles','/roles')?>
+                            <ul class="child-items">
+                                <li><a href="/roles">List Users</a></li>
+                                <li><a href="/add-role">Add User</a></li>
+
+                            </ul>
+                        </li>
                         <li class="menuitems"><?php echo $this->Html->link('Users','/users')?> </li>
                         <li class="menuitems"><?php echo $this->Html->link('Posts','/posts')?> </li>
                         <li class="menuitems"><?php echo $this->Html->link('Widgets','/widgets')?> </li>

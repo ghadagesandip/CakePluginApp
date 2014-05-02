@@ -144,7 +144,6 @@ class UsersController extends UsermgmtAppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
-
 			$this->request->data = $this->User->getUser($id);
 		}
         $roles = $this->User->Role->getRoles();

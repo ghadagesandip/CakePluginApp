@@ -42,7 +42,7 @@ class AppController extends Controller {
         ),
     );
 
-    public $helpers = array('Html', 'Form', 'Session','Function');
+    public $helpers = array('Html', 'Form', 'Session','Usermgmt.Function');
 
     public function beforeFilter() {
 
@@ -59,7 +59,7 @@ class AppController extends Controller {
             'action' => 'login'
         );
         $this->Auth->loginRedirect = array(
-            'plugin'=>null,
+            'plugin'=>'usermgmt',
             'controller' => 'dashboards',
             'action' => 'index'
         );

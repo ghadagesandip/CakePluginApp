@@ -1,0 +1,1 @@
+Welcome <?php echo AuthComponent::user('first_name');?>
